@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)file:///C:/Users/info/Downloads/udit_portfolio%20(1).html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udit Narayan Jha – Mechanical Design Engineer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+</style>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --steel: #1a2535;
+    --pipe: #2d4a6e;
+    --accent: #e07b39;
+    --accent-light: #f0a060;
+    --grid: #243447;
+    --surface: #1e2d3f;
+    --muted: #8fa3b8;
+    --light: #cdd8e3;
+    --white: #f0f4f8;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--steel);
+    color: var(--light);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── ENGINEERING GRID BACKGROUND ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(45,74,110,0.18) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(45,74,110,0.18) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  section, header, footer { position: relative; z-index: 1; }
+
+  /* ── HERO ── */
+  header {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 5vw 60px;
+    background: linear-gradient(135deg, #0d1821 0%, #1a2535 50%, #1e3050 100%);
+    overflow: hidden;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    right: -80px; top: -80px;
+    width: 520px; height: 520px;
+    background: radial-gradient(circle, rgba(224,123,57,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 2px;
+    background: var(--accent);
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 400;
+    color: var(--muted);
+    margin-bottom: 28px;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-summary {
+    font-size: 14px;
+    color: var(--light);
+    opacity: 0.85;
+    max-width: 560px;
+    margin-bottom: 36px;
+    line-height: 1.8;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  .tag {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border: 1px solid rgba(224,123,57,0.4);
+    border-radius: 2px;
+    color: var(--accent-light);
+    letter-spacing: 0.08em;
+    background: rgba(224,123,57,0.06);
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 12px 28px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+
+  .btn-ghost {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 28px;
+    border: 1px solid rgba(143,163,184,0.4);
+    color: var(--muted);
+    text-decoration: none;
+    border-radius: 3px;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent-light); }
+
+  /* Blueprint schematic on hero right */
+  .hero-schematic {
+    width: 200px;
+    opacity: 0.55;
+    flex-shrink: 0;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13,24,33,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(45,74,110,0.5);
+    padding: 0 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent-light); }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 90px 5vw;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 22px; height: 2px;
+    background: var(--accent);
+  }
+
+  .section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 48px;
+    line-height: 1.2;
+  }
+
+  /* ── SKILLS ── */
+  #skills { border-top: 1px solid rgba(45,74,110,0.4); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid rgba(45,74,110,0.5);
+    border-radius: 4px;
+    padding: 22px 20px;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .skill-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+  .skill-icon {
+    font-size: 22px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .skill-name {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .skill-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { border-top: 1px solid rgba(45,74,110,0.4); }
+
+  .exp-timeline { display: flex; flex-direction: column; gap: 0; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 32px;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(45,74,110,0.3);
+    position: relative;
+  }
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: 129px; top: 38px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--steel);
+  }
+  .exp-item::after {
+    content: '';
+    position: absolute;
+    left: 133px; top: 50px;
+    width: 2px;
+    height: calc(100% - 18px);
+    background: rgba(45,74,110,0.5);
+  }
+  .exp-item:last-child::after { display: none; }
+
+  .exp-date {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    padding-top: 4px;
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  .exp-company {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .exp-role {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .exp-body {
+    font-size: 13.5px;
+    color: var(--light);
+    opacity: 0.85;
+    line-height: 1.75;
+  }
+
+  .exp-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  .exp-pill {
+    font-size: 11px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    padding: 3px 10px;
+    background: rgba(45,74,110,0.5);
+    border: 1px solid rgba(45,74,110,0.8);
+    border-radius: 2px;
+    color: var(--muted);
+  }
+
+  /* ── PROJECTS ── */
+  #projects { border-top: 1px solid rgba(45,74,110,0.4); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid rgba(45,74,110,0.5);
+    border-radius: 4px;
+    padding: 26px 24px;
+    transition: border-color 0.2s, transform 0.15s;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+
+  .project-number {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .project-name {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .project-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 16px;
+  }
+
+  .project-software {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent-light);
+    letter-spacing: 0.06em;
+    border-top: 1px solid rgba(45,74,110,0.5);
+    padding-top: 12px;
+    margin-top: auto;
+  }
+
+  /* ── EDUCATION ── */
+  #education { border-top: 1px solid rgba(45,74,110,0.4); }
+
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  .edu-card {
+    background: var(--surface);
+    border: 1px solid rgba(45,74,110,0.5);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 26px 24px;
+  }
+
+  .edu-degree {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .edu-school {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .edu-year {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .edu-desc {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── CONTACT ── */
+  #contact { border-top: 1px solid rgba(45,74,110,0.4); }
+
+  .contact-wrapper {
+    background: linear-gradient(135deg, var(--surface), #1a2d42);
+    border: 1px solid rgba(45,74,110,0.6);
+    border-radius: 6px;
+    padding: 52px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .contact-heading {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .contact-heading span { color: var(--accent); }
+
+  .contact-sub {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+
+  .contact-items { display: flex; flex-direction: column; gap: 16px; }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .contact-item-icon {
+    width: 36px; height: 36px;
+    background: rgba(224,123,57,0.12);
+    border: 1px solid rgba(224,123,57,0.3);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .contact-item-label {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 3px;
+  }
+
+  .contact-item-val {
+    font-size: 13.5px;
+    color: var(--light);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  a.contact-item-val:hover { color: var(--accent-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 28px 5vw;
+    border-top: 1px solid rgba(45,74,110,0.3);
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--font-display);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── DIVIDER ── */
+  .pipe-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 5vw;
+  }
+  .pipe-divider::before, .pipe-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(45,74,110,0.4);
+  }
+  .pipe-divider span {
+    font-size: 18px;
+    color: rgba(224,123,57,0.5);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-schematic { display: none; }
+    .exp-item { grid-template-columns: 1fr; }
+    .exp-item::before, .exp-item::after { display: none; }
+    .exp-date { text-align: left; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .contact-wrapper { grid-template-columns: 1fr; padding: 32px 24px; }
+    .nav-links { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="file:///C:/Users/info/Downloads/udit_portfolio%20(1).html#">UNJ <span>·</span> MDE</a>
+  <ul class="nav-links">
+    <li><a href="file:///C:/Users/info/Downloads/udit_portfolio%20(1).html#skills">Skills</a></li>
+    <li><a href="file:///C:/Users/info/Downloads/udit_portfolio%20(1).html#experience">Experience</a></li>
+    <li><a href="file:///C:/Users/info/Downloads/udit_portfolio%20(1).html#projects">Projects</a></li>
+    <li><a href="file:///C:/Users/info/Downloads/udit_portfolio%20(1).html#education">Education</a></li>
+    <li><a href="file:///C:/Users/info/Downloads/udit_portfolio%20(1).html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header>
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Mechanical Design Engineer</p>
+      <h1 class="hero-name">Udit Narayan<br>Jha</h1>
+      <p class="hero-title">Piping &amp; Industrial Plant Engineering</p>
+      <p class="hero-summary">
+        Hands-on expertise in 2D &amp; 3D modeling using AutoCAD, AutoCAD Plant 3D, and Revit MEP. 
+        Delivered large-scale industrial projects for Tata Steel India &amp; Netherlands — from 
+        piping layout design and BOQ/MTO preparation to clash detection and multi-discipline coordination.
+      </p>
+      <div class="hero-tags">
+        <span class="tag">AutoCAD Plant 3D</span>
+        <span class="tag">Revit MEP</span>
+        <span class="tag">Navisworks</span>
+        <span class="tag">P&amp;ID</span>
+        <span class="tag">Isometrics</span>
+        <span class="tag">BOQ / MTO</span>
+        <span class="tag">Clash Detection</span>
+        <span class="tag">Siemens COMOS</span>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="file:///C:/Users/info/Downloads/udit_portfolio%20(1).html#projects">View Projects</a>
+        <a class="btn-ghost" href="file:///C:/Users/info/Downloads/udit_portfolio%20(1).html#contact">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- Blueprint SVG schematic (decorative) -->
+    <svg class="hero-schematic" viewBox="0 0 180 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Pipe runs -->
+      <rect x="20" y="40" width="140" height="6" rx="1" fill="#2d4a6e" stroke="#e07b39" stroke-width="0.5"></rect>
+      <rect x="20" y="90" width="100" height="6" rx="1" fill="#2d4a6e" stroke="#8fa3b8" stroke-width="0.5"></rect>
+      <rect x="80" y="40" width="6" height="56" rx="1" fill="#2d4a6e" stroke="#8fa3b8" stroke-width="0.5"></rect>
+      <rect x="20" y="140" width="140" height="6" rx="1" fill="#2d4a6e" stroke="#8fa3b8" stroke-width="0.5"></rect>
+      <rect x="140" y="90" width="6" height="56" rx="1" fill="#2d4a6e" stroke="#e07b39" stroke-width="0.5"></rect>
+      <!-- Flanges -->
+      <rect x="14" y="37" width="8" height="12" rx="1" fill="#e07b39" opacity="0.7"></rect>
+      <rect x="158" y="37" width="8" height="12" rx="1" fill="#e07b39" opacity="0.7"></rect>
+      <rect x="14" y="137" width="8" height="12" rx="1" fill="#8fa3b8" opacity="0.5"></rect>
+      <rect x="158" y="137" width="8" height="12" rx="1" fill="#8fa3b8" opacity="0.5"></rect>
+      <!-- Valve -->
+      <circle cx="50" cy="43" r="9" fill="#1a2535" stroke="#e07b39" stroke-width="1.2"></circle>
+      <line x1="50" y1="35" x2="50" y2="51" stroke="#e07b39" stroke-width="1.5"></line>
+      <line x1="42" y1="43" x2="58" y2="43" stroke="#e07b39" stroke-width="1.5"></line>
+      <!-- Elbow node -->
+      <circle cx="140" cy="43" r="5" fill="#e07b39" opacity="0.8"></circle>
+      <circle cx="83" cy="90" r="5" fill="#8fa3b8" opacity="0.6"></circle>
+      <circle cx="140" cy="143" r="5" fill="#e07b39" opacity="0.8"></circle>
+      <!-- Vertical pipe left -->
+      <rect x="20" y="40" width="6" height="106" rx="1" fill="#2d4a6e" stroke="#8fa3b8" stroke-width="0.5"></rect>
+      <!-- Equipment box -->
+      <rect x="100" y="180" width="60" height="50" rx="2" fill="#1e2d3f" stroke="#2d4a6e" stroke-width="1"></rect>
+      <text x="130" y="200" font-size="7" fill="#8fa3b8" text-anchor="middle" font-family="monospace">PUMP</text>
+      <text x="130" y="212" font-size="6" fill="#e07b39" text-anchor="middle" font-family="monospace">P-101</text>
+      <!-- Nozzle lines -->
+      <line x1="100" y1="205" x2="80" y2="205" stroke="#8fa3b8" stroke-width="1" stroke-dasharray="3,2"></line>
+      <line x1="130" y1="230" x2="130" y2="250" stroke="#8fa3b8" stroke-width="1" stroke-dasharray="3,2"></line>
+      <!-- Dimensions -->
+      <line x1="20" y1="28" x2="160" y2="28" stroke="#8fa3b8" stroke-width="0.5" stroke-dasharray="4,3" opacity="0.5"></line>
+      <text x="90" y="24" font-size="6" fill="#8fa3b8" text-anchor="middle" font-family="monospace" opacity="0.7">DN150</text>
+    </svg>
+  </div>
+</header>
+
+<!-- SKILLS -->
+<div class="section" id="skills">
+  <p class="section-label">Technical Expertise</p>
+  <h2 class="section-heading">Tools &amp; Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <span class="skill-icon">📐</span>
+      <div class="skill-name">AutoCAD / Plant 3D</div>
+      <div class="skill-desc">2D &amp; 3D piping layout, equipment arrangement, detailed layout preparation, isometrics and BOM extraction.</div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🏗️</span>
+      <div class="skill-name">Revit MEP</div>
+      <div class="skill-desc">3D service modeling for mechanical, electrical, and plumbing systems. Coordinated multi-discipline models.</div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🔍</span>
+      <div class="skill-name">Navisworks Manage</div>
+      <div class="skill-desc">Clash detection, model validation, and coordination across disciplines for large-scale industrial projects.</div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">📊</span>
+      <div class="skill-name">Siemens COMOS</div>
+      <div class="skill-desc">Intelligent P&amp;ID drafting, engineering data management, and quality checks on complex process documentation.</div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🔧</span>
+      <div class="skill-name">P&amp;ID &amp; Isometrics</div>
+      <div class="skill-desc">Interpretation, implementation, and production of P&amp;IDs and piping isometrics per project standards.</div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">📋</span>
+      <div class="skill-name">BOQ / BOM / MTO</div>
+      <div class="skill-desc">Preparation and verification of Bills of Quantities, Material Take-offs, and cross-check with project specs.</div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🚒</span>
+      <div class="skill-name">Fire Fighting Systems</div>
+      <div class="skill-desc">Fire fighting system design and sprinkler system basics for industrial and commercial applications.</div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">📁</span>
+      <div class="skill-name">MS Excel &amp; Shop Drawings</div>
+      <div class="skill-desc">Inventory management, production checklists, QA/QC reporting, and detailed shop drawing preparation.</div>
+    </div>
+  </div>
+</div>
+
+<div class="pipe-divider"><span>⬡</span></div>
+
+<!-- EXPERIENCE -->
+<div class="section" id="experience">
+  <p class="section-label">Career History</p>
+  <h2 class="section-heading">Work Experience</h2>
+  <div class="exp-timeline">
+
+    <div class="exp-item">
+      <div class="exp-date">Feb 2026<br>—<br>Jun 2026</div>
+      <div>
+        <div class="exp-company">SKL Design Studio Pvt. Ltd.</div>
+        <div class="exp-role">Design &amp; Production Manager</div>
+        <div class="exp-body">
+          Led production and design operations for an interior design studio. Managed project delivery from design check to final production — overseeing 2D/3D rendering, material checks, CNC file verification, full production quality assurance, and inventory management in Excel. Handled QA/QC with detailed checklists and coordinated laying and mastic piece production.
+        </div>
+        <div class="exp-pills">
+          <span class="exp-pill">AutoCAD</span>
+          <span class="exp-pill">Interior Design</span>
+          <span class="exp-pill">3D Render</span>
+          <span class="exp-pill">CNC</span>
+          <span class="exp-pill">QA/QC</span>
+          <span class="exp-pill">MS Excel</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Aug 2023<br>—<br>Jan 2026</div>
+      <div>
+        <div class="exp-company">Tata Consulting Engineers Ltd.</div>
+        <div class="exp-role">Associate Designer – Mechanical (Piping)</div>
+        <div class="exp-body">
+          Developed 2D &amp; 3D piping layouts using AutoCAD Plant 3D for major industrial clients including Tata Steel India and Tata Steel Netherlands. Prepared General Arrangement drawings, equipment layouts, and interpreted P&amp;IDs. Performed accurate 3D piping routing per P&amp;ID, generated isometrics, extracted BOQ/MTO, and conducted clash detection using Navisworks. Coordinated with civil, electrical, and process teams for design validation. Drafted 250+ intelligent P&amp;ID drawings using Siemens COMOS for the ONGC project. Also delivered HVAC duct and piping modeling with clash coordination for a 1.2 GW Power Plant project in China.
+        </div>
+        <div class="exp-pills">
+          <span class="exp-pill">AutoCAD Plant 3D</span>
+          <span class="exp-pill">Revit MEP</span>
+          <span class="exp-pill">Navisworks</span>
+          <span class="exp-pill">Siemens COMOS</span>
+          <span class="exp-pill">P&amp;ID</span>
+          <span class="exp-pill">MTO/BOM</span>
+          <span class="exp-pill">Clash Detection</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="pipe-divider"><span>⬡</span></div>
+
+<!-- PROJECTS -->
+<div class="section" id="projects">
+  <p class="section-label">Field Experience</p>
+  <h2 class="section-heading">Project Portfolio</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-number">PROJECT 01</div>
+      <div class="project-name">Tata Steel – India</div>
+      <div class="project-desc">Developed 3D piping routing as per P&amp;ID. Generated isometrics and prepared comprehensive MTO/BOM for large-scale steel plant operations.</div>
+      <div class="project-software">🛠 AutoCAD · Plant 3D</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-number">PROJECT 02</div>
+      <div class="project-name">Tata Steel – Netherlands</div>
+      <div class="project-desc">Developed coordinated 3D service models for a European steel facility. Performed clash detection and model validation across multidisciplinary teams.</div>
+      <div class="project-software">🛠 Revit MEP · Navisworks</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-number">PROJECT 03</div>
+      <div class="project-name">Hindalco Industrial Project</div>
+      <div class="project-desc">Modeled 3D piping layouts for a major aluminium industrial complex and generated detailed material take-offs for procurement.</div>
+      <div class="project-software">🛠 AutoCAD · Plant 3D</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-number">PROJECT 04</div>
+      <div class="project-name">ONGC Project</div>
+      <div class="project-desc">Drafted 250+ intelligent P&amp;ID drawings and performed rigorous quality checks for one of India's largest energy companies.</div>
+      <div class="project-software">🛠 Siemens COMOS</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-number">PROJECT 05</div>
+      <div class="project-name">1.2 GW Power Plant – China</div>
+      <div class="project-desc">Performed HVAC duct and piping modeling with full clash coordination for a massive power generation facility, ensuring zero-conflict delivery.</div>
+      <div class="project-software">🛠 Revit MEP · Navisworks</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-number">PROJECT 06</div>
+      <div class="project-name">Glow Flutes Dubai – Interior</div>
+      <div class="project-desc">XBD Ripple Feature Wall production management — design file verification, render sign-off, CNC production, and quality assurance for a UAE interior project.</div>
+      <div class="project-software">🛠 AutoCAD · Interior Design Tools</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="pipe-divider"><span>⬡</span></div>
+
+<!-- EDUCATION -->
+<div class="section" id="education">
+  <p class="section-label">Academic Background</p>
+  <h2 class="section-heading">Education</h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-degree">Diploma in Mechanical Engineering</div>
+      <div class="edu-school">Government Polytechnic Jagannathpur</div>
+      <div class="edu-year">2020 – 2023</div>
+      <div class="edu-desc">Strong foundation in mechanical engineering fundamentals, engineering drawings, and manufacturing processes. Practical exposure to basic design concepts, materials, and workshop practices.</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Bachelor in Mechanical Engineering</div>
+      <div class="edu-school">Chaibasa Engineering College</div>
+      <div class="edu-year">2024 – 2027 (Ongoing)</div>
+      <div class="edu-desc">In-depth knowledge of mechanical systems, thermodynamics, fluid mechanics, and machine design. Academic focus on industrial engineering practices and application-oriented problem solving.</div>
+    </div>
+  </div>
+</div>
+
+<div class="pipe-divider"><span>⬡</span></div>
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+  <p class="section-label">Let's Connect</p>
+  <h2 class="section-heading">Get in Touch</h2>
+  <div class="contact-wrapper">
+    <div>
+      <div class="contact-heading">Open to new <span>opportunities</span> &amp; collaborations</div>
+      <div class="contact-sub">Whether you're looking for a piping designer, a 3D modeling specialist, or a multidisciplinary project collaborator — I'd love to hear from you.</div>
+    </div>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="contact-item-icon">📞</div>
+        <div>
+          <div class="contact-item-label">Phone</div>
+          <a class="contact-item-val" href="tel:+917479429291">+91 7479429291</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">✉️</div>
+        <div>
+          <div class="contact-item-label">Email</div>
+          <a class="contact-item-val" href="mailto:udit203040@gmail.com">udit203040@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div>
+          <div class="contact-item-label">Location</div>
+          <span class="contact-item-val">Jamshedpur, Jharkhand, India</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">🔗</div>
+        <div>
+          <div class="contact-item-label">LinkedIn</div>
+          <a class="contact-item-val" href="https://www.linkedin.com/in/udit-narayan-jha-a394b531a" target="_blank" rel="noopener">linkedin.com/in/udit-narayan-jha</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2026 Udit Narayan Jha · Mechanical Design Engineer · Piping &amp; Industrial Plant Engineering
+</footer>
+
+<script>
+  // Fix smooth scroll for all anchor links (works on tiiny.host & all browsers)
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+
+</body></html>
